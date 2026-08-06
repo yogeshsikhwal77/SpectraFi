@@ -1,0 +1,21 @@
+# UI Framework
+streamlit
+
+# LangChain Orchestration
+langchain
+langchain-core
+
+# Google Gemini Integrations (LLM & Embeddings)
+langchain-google-genai
+
+# Vector Database (ChromaDB)
+chromadb
+langchain-chroma
+
+# PDF & Image Processing
+pdf2image
+pypdf
+pillow
+
+# Environment Variables
+python-dotenv
