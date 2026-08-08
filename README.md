@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🔭 SpectraFi
+# 📈 SpectraFi
 
 **Chat with financial PDFs — text, charts, and tables included.**
 
@@ -258,7 +258,6 @@ pdftoppm -v
     <p>Detailed Financial Insight Report</p>
   </div>
 </div>
-```http://googleusercontent.com/image_generation_content/474
 
 ---
 
