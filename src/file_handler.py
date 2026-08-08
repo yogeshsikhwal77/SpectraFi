@@ -42,5 +42,7 @@ def clear_file():
 
                     elif os.path.isdir(file_path):
                         shutil.rmtree(file_path)
+                except PermissionError as e:
+                    print(f"skipping {file_path} - file is currnetly in sue by chromadb: {e}")
                 except Exception as e:
                     print(f"failed to delete {file_path}. Reason : {e}")
