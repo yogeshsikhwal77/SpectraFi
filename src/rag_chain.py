@@ -39,7 +39,7 @@ def generate_answer(question: str,chat_history: list) -> str:
     if not formatted_history:
         formatted_history = "No previous conversation."
 
-    llm = ChatGoogleGenerativeAI(model="gemini-3.5-flash", temperature=0.2)
+    llm = ChatGoogleGenerativeAI(model="gemini-3.1-flash-lite", temperature=0.2)
 
     retriever = get_retriver()
 

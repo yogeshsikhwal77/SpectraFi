@@ -1,7 +1,7 @@
 import streamlit as st
 import os
 from src.file_handler import save_file,clear_file
-from src.document_processor import extract_images,pdf_to_chroma
+from src.document_processor import extract_images,pdf_to_chroma,summery
 from src.rag_chain import generate_answer
 st.set_page_config(page_title="spectrafi")
 
@@ -27,10 +27,14 @@ with st.sidebar:
             st.session_state.current_file = filename
 
             st.info("Extracting charts and tables as images....")
-            extract_images(filename)
+            saved_image_path = extract_images(filename)
 
+            st.info("Generating intelligent summaries for images...")
+            # 2. Pass the image paths to your summery function
+            summary_list = summery(saved_image_path)
+            
             st.info("vectorizing documet text into chromadb....")
-            pdf_to_chroma(filename)
+            pdf_to_chroma(filename,summary_list)
 
             st.session_state.is_processed = True
             st.success("Documents processed successfully: now we can chat")
@@ -55,8 +59,6 @@ if prompt := st.chat_input("ask a question about the uploaded document...."):
 
         with st.chat_message("assistant"):
             with st.spinner("Analyzing document..."):
-                
-                
                 
                 response = generate_answer(prompt,st.session_state.messages)
                 st.markdown(response)

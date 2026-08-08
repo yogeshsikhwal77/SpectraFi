@@ -32,7 +32,7 @@ def save_file(file):
 
 def clear_file():
     """ delete temproary files """
-    for directory in [TEMP_IMAGES_DIR,TEMP_UPLOADS_DIR]:
+    for directory in [TEMP_IMAGES_DIR,TEMP_UPLOADS_DIR,CHROMA_DB_DIR]:
         if os.path.exists(directory):
             for filename in os.listdir(directory):
                 file_path = os.path.join(directory,filename)
